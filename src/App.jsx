@@ -8,6 +8,7 @@ import Customers from './pages/Customers';
 import Warranty from './pages/Warranty';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
+import Settings from './pages/Settings';
 import Login from './pages/Login';
 import './App.css';
 import { User, Shield, AlertTriangle } from 'lucide-react';
@@ -35,9 +36,9 @@ class GlobalErrorBoundary extends React.Component {
 
 function AdminLayout({ children, activeTab, setActiveTab }) {
   return (
-    <div className="admin-container" style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-dark)' }}>
+    <div className="admin-container">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main style={{ marginLeft: '300px', flex: 1, padding: '20px', maxWidth: '1400px', width: '100%' }}>
+      <main className="main-content">
         {children}
       </main>
     </div>
@@ -54,7 +55,7 @@ function App() {
   return (
     <Router>
       <GlobalErrorBoundary>
-        <div className="app-container" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)', color: 'white' }}>
+        <div className="app-container">
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={
@@ -78,7 +79,7 @@ function App() {
                   {activeTab === 'sales' && <Sales />}
                   {activeTab === 'customers' && <Customers />}
                   {activeTab === 'warranty' && <Warranty />}
-                  {activeTab === 'settings' && <div className="placeholder" style={{ padding: '40px', textAlign: 'center' }}><h2>Paramètres (À venir)</h2></div>}
+                  {activeTab === 'settings' && <Settings />}
                 </AdminLayout>
               )
             } />

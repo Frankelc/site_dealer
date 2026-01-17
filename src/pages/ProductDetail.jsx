@@ -1,6 +1,5 @@
 import React from 'react';
 import { Smartphone, Battery, ShieldCheck, ArrowLeft, MessageCircle, Share2, Info } from 'lucide-react';
-import IPhoneViewer from '../components/iPhoneViewer';
 
 const ProductDetail = ({ product, onBack }) => {
     if (!product) return null;
@@ -30,21 +29,30 @@ const ProductDetail = ({ product, onBack }) => {
             </button>
 
             <div className="grid-3" style={{ gridTemplateColumns: '1.5fr 1fr', gap: '40px' }}>
-                {/* Left: 3D View */}
+                {/* Left: Image View */}
                 <div style={{ position: 'sticky', top: '20px' }}>
                     <h2 style={{ fontSize: '36px', fontWeight: '800', marginBottom: '10px' }}>{product.model}</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '30px' }}>{product.capacity} • {product.color} • {product.condition}</p>
 
-                    <IPhoneViewer
-                        color={product.color === 'Natural Titanium' ? '#a5a194' : product.color === 'Midnight' ? '#1c1c1e' : '#ffffff'}
-                        defect={product.defects[0]}
-                    />
+                    <div className="glass-card" style={{ padding: '0', overflow: 'hidden', aspectRatio: '1/1', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000' }}>
+                        {product.images && product.images.length > 0 ? (
+                            <img
+                                src={product.images[0]}
+                                alt={product.model}
+                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                            />
+                        ) : (
+                            <div className="flex-center flex-column">
+                                <Info size={40} style={{ opacity: 0.3, marginBottom: '20px' }} />
+                                <span style={{ color: 'var(--text-secondary)' }}>Aucune image disponible</span>
+                            </div>
+                        )}
+                    </div>
 
                     <div className="glass-card" style={{ marginTop: '20px', padding: '20px', display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                         <Info color="var(--primary)" size={24} style={{ flexShrink: 0 }} />
                         <p style={{ fontSize: '14px', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
-                            Utilisez votre souris ou votre doigt pour faire pivoter le téléphone et inspecter chaque détail.
-                            Les éventuels défauts signalés sont affichés sur le modèle 3D.
+                            Photos réelles de l'appareil. Cliquez pour agrandir en HD.
                         </p>
                     </div>
                 </div>

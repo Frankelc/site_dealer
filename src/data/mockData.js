@@ -12,7 +12,8 @@ export const MOCK_IPHONES = [
     sellingPrice: 1500,
     status: "Disponible",
     createdAt: "2024-01-10T10:00:00Z",
-    defects: []
+    defects: [],
+    images: ["https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=800"]
   },
   {
     id: "2",
@@ -27,7 +28,8 @@ export const MOCK_IPHONES = [
     sellingPrice: 600,
     status: "Disponible",
     createdAt: "2024-01-12T14:30:00Z",
-    defects: ["rayure_legere_ecran"]
+    defects: ["rayure_legere_ecran"],
+    images: ["https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&q=80&w=800"]
   },
   {
     id: "3",
@@ -42,7 +44,8 @@ export const MOCK_IPHONES = [
     sellingPrice: 400,
     status: "Vendu",
     createdAt: "2024-01-05T09:15:00Z",
-    defects: ["fissure_arriere"]
+    defects: ["fissure_arriere"],
+    images: ["https://images.unsplash.com/photo-1574315042633-89d5f00e2387?auto=format&fit=crop&q=80&w=800"]
   }
 ];
 
